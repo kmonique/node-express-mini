@@ -24,8 +24,8 @@ const express = require('express');
 
 	server.get("/api/users/:id", (req, res) => {
 		const {id} = req.params;
-		db.findById()
-			.then(users => {
+		db.findById(id)
+			.then((user) => {
 				if(user){
 					res.json(user);
 				} else {
