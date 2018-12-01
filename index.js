@@ -46,7 +46,7 @@ server.get("/api/users/:id", (req, res) => {
 //post request
 server.post("/api/users/", (req, res) => {
 	const user = req.body;
-	if(user.name && user.body) {
+	if(user.name && user.bio) {
 		db.insert(user)
 			.then(idInfo => {
 				db.findById(idInfo.id)
@@ -83,7 +83,7 @@ server.put("/api/users/:id", (req, res) => {
 	const {id} = req.params;
 	const user = req.body;
 
-	if(user.name && user.body) {
+	if(user.name && user.bio) {
 		db.update(id, user)
 			.then(count => {
 				if(count) {
